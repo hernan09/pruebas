@@ -1,7 +1,10 @@
 const express = require('express')
-
+const path = require('path')
 
 let app = express()
+
+app.set('view engine', 'hbs')
+app.set('views', path.join(__dirname, 'views'))
 
 app.set('port', process.env.PORT || 4000)
 
@@ -13,7 +16,7 @@ app.listen(app.get('port'), (err) => {
 
 
 app.get('/new', (req, res) => {
-    res.status(200).send('hola mundo')
+    res.render('index')
 
 
 })
