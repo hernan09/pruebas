@@ -49,7 +49,7 @@
    </form>
 
 </div>
-
+<div id="contTabla">
 <table id="tabla" class="table table-hover">
     <thead>
         <tr>
@@ -57,21 +57,24 @@
             <th scope="col">name</th>
             <th scope="col">eliminar</th>
             <th scope="col">modificar</th>
-           
+
         </tr>
     </thead>
     <tbody>
-      {{#each data}}
+        {{#each data}}
         <tr class="table-primary">
             <th scope="row">{{price}}</th>
             <td>{{nombre}}</td>
             <td><a class="btn btn-danger" href="/delete/{{id}}">eliminar</a></td>
             <td><a class="btn btn-primary" href="/edit/{{id}}">modificar</a></td>
-           
+
         </tr>
         {{/each}}
     </tbody>
 </table>
+
+
+</div>
 
 
 
