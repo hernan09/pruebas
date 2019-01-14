@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -37,11 +38,25 @@
     </div>
 </nav>
 
-<table class="table table-hover">
+<div>
+   <form id="formu" action="/new" method="POST">
+       <input type="text" name="nombre" class="form-control">
+       <br>
+       <input type="text" name="price" class="form-control">
+       <br>
+       <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+
+   </form>
+
+</div>
+
+<table id="tabla" class="table table-hover">
     <thead>
         <tr>
             <th scope="col">price</th>
             <th scope="col">name</th>
+            <th scope="col">eliminar</th>
+            <th scope="col">modificar</th>
            
         </tr>
     </thead>
@@ -49,7 +64,9 @@
       {{#each data}}
         <tr class="table-primary">
             <th scope="row">{{price}}</th>
-            <td>{{name}}</td>
+            <td>{{nombre}}</td>
+            <td><a class="btn btn-danger" href="/delete/{{id}}">eliminar</a></td>
+            <td><a class="btn btn-primary" href="/edit/{{id}}">modificar</a></td>
            
         </tr>
         {{/each}}

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Squema = mongoose.Schema
 
 let producto = new Squema({
-    name: { type: String },
+    nombre: { type: String },
     price: { type: Number, default: 0 }
 
 })
