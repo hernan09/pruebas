@@ -1,9 +1,20 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
 #imagenprueba {
     width: 100px;
     height: 100px;
     background-image: url('./uploads//joystic.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#img2 {
+    width: 100px;
+    height: 100px;
 }
 
 #formu {
@@ -98,6 +109,16 @@
 
 #contTabla::-webkit-scrollbar-corner {
     display: none;
+}
+
+.card-body {
+    position: relative;
+    width: 50%;
+    margin: auto;
+}
+
+.card-body>h1 {
+    margin-left: 15%;
 }
 
 #formu2 {
