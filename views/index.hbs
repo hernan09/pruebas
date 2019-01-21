@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -39,22 +39,25 @@
 </nav>
 
 <div>
-   <form id="formu" action="/new" method="POST">
+   <form id="formu" action="/new" method="POST" enctype="multipart/form-data">
        <input type="text" name="nombre" class="form-control">
        <br>
        <input type="text" name="price" class="form-control">
        <br>
-       <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+       <input type="file" name="foto" class="form-control">
+      <br>
+       <button type="submit" class="btn btn-dark btn-lg btn-block">Enviar</button>
 
    </form>
 
 </div>
 <div id="contTabla">
-<table id="tabla" class="table table-hover">
+ <table id="tabla" class="table table-hover">
     <thead>
         <tr>
             <th scope="col">price</th>
             <th scope="col">name</th>
+            <th scope="col">imagen</th>
             <th scope="col">eliminar</th>
             <th scope="col">modificar</th>
 
@@ -62,20 +65,24 @@
     </thead>
     <tbody>
         {{#each data}}
-        <tr class="table-primary">
+        <tr class="table-dark">
             <th scope="row">{{price}}</th>
             <td>{{nombre}}</td>
-            <td><a class="btn btn-danger" href="/delete/{{id}}">eliminar</a></td>
-            <td><a class="btn btn-primary" href="/edit/{{id}}">modificar</a></td>
-
+            <td><div id="imagenprueba">
+            
+            </div></td>
+            <td><a class="btn btn-info" href="/delete/{{id}}">eliminar</a></td>
+            <td><a class="btn btn-dark" href="/edit/{{id}}">modificar</a></td>
         </tr>
         {{/each}}
     </tbody>
-</table>
+ </table>
 
 
 </div>
 
+
+<img src="../public/uploads/joystic.jpg" alt="">
 
 
 

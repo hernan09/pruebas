@@ -7,6 +7,14 @@ body {
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+#imagenprueba {
+    width: 100px;
+    height: 100px;
+    background-image: url('./uploads//joystic.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 #formu {
     width: 50%;
     margin: auto;
@@ -88,13 +96,17 @@ body {
 
 #contTabla::-webkit-scrollbar-thumb {
     width: 6px;
-    background-color: aqua;
+    background-color: rgb(7, 36, 16);
     border-radius: 5px;
+    margin: 0;
 }
 
-#contTabla::-webkit-scrollbar-button {
-    height: 2px;
-    width: 5px;
+#contTabla::-webkit-scrollbar-track {
+    display: none;
+}
+
+#contTabla::-webkit-scrollbar-corner {
+    display: none;
 }
 
 #formu2 {

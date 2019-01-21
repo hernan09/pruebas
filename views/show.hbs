@@ -7,23 +7,26 @@
     
     <title>Document</title>
     
-    <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css">
     <link rel="stylesheet" href="/style.css">
      
 </head>
 <body>
 
     
-    <form id="formu2" action="/update/{{data.id}}" method="POST">
+    <form id="formu2" action="/update/{{data.id}}" method="POST" enctype="multipart/form-data">
         <input type="text" value="{{data.nombre}}" name="nombre" class="form-control">
         <br>
         <input type="text" value="{{data.price}}" name="price" class="form-control">
         <br>
+        <input type="file" name="foto"  class="form-control">
+       <br>
         <button type="submit" class="btn btn-primary btn-lg btn-block">modificar</button>
     
     </form>
 
-
+   
+   
 
 
 

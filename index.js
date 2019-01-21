@@ -4,16 +4,30 @@ const BodyParser = require('body-parser')
 const producto = require('./squema/squema')
 const morgan = require('morgan')
 const mongose = require('mongoose')
+const multer = require('multer')
+    //multer config subida imagenes
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, '/public/uploads'),
+    filename: (req, file, cb) => {
+        cb(null, file.originalname)
+    }
+})
+
+
+
 
 let app = express()
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
+    //le paso el storage creado antes para asignar una extencion a la imagen
+app.use(multer({ storage }).single('foto'));
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use(BodyParser.urlencoded({ extended: false }))
+app.use(BodyParser.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 app.set('port', process.env.PORT || 3000)
+
 
 mongose.connect('mongodb://localhost:27017/producto', {
     useNewUrlParser: true
@@ -24,15 +38,20 @@ mongose.connect('mongodb://localhost:27017/producto', {
     app.listen(app.get('port'), (err) => {
         if (err) console.log(`${err}`)
 
-        console.log('http://localhost:3000')
+        console.log(`http://localhost:${app.get('port')}/product`)
     })
 })
 
 
 app.post('/new', (req, res) => {
-    producto1 = new producto()
+    let producto1 = new producto()
     producto1.nombre = req.body.nombre
     producto1.price = req.body.price
+    producto1.foto = req.file.path
+
+    console.log(req.file)
+
+
 
     producto1.save((err, productoGuardado) => {
         if (err) res.status(500).send(`${err}`)
@@ -40,7 +59,14 @@ app.post('/new', (req, res) => {
         res.redirect('/product')
     })
 
+
+
+
 })
+
+
+
+
 
 app.get('/product', (req, res) => {
 
