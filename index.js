@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(BodyParser.urlencoded({ extended: true }))
 app.use(morgan('dev'))
-app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT || 5000)
 
 
 mongose.connect('mongodb://localhost:27017/producto', {
@@ -47,7 +47,7 @@ app.post('/new', (req, res) => {
     let producto1 = new producto()
     producto1.nombre = req.body.nombre
     producto1.price = req.body.price
-    producto1.foto = req.file.path
+    producto1.foto = '/uploads' + req.file.originalname
 
     console.log(req.file)
 

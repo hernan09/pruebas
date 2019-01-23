@@ -96,19 +96,22 @@
     width: 6px;
 }
 
+#contTabla::-webkit-scrollbar-track {}
+
 #contTabla::-webkit-scrollbar-thumb {
     width: 6px;
+    height: 6px;
     background-color: white;
     border-radius: 5px;
     margin: 0;
 }
 
-#contTabla::-webkit-scrollbar-track {
+#contTabla::-webkit-scrollbar-button {
     display: none;
 }
 
 #contTabla::-webkit-scrollbar-corner {
-    display: none;
+    height: 5px;
 }
 
 .card-body {
@@ -118,7 +121,7 @@
 }
 
 .card-body>h1 {
-    margin-left: 15%;
+    margin-left: 10%;
 }
 
 #formu2 {
@@ -209,5 +212,18 @@
     100% {
         opacity: 1;
         -ms-transform: translate(0px, 0px);
+    }
+}
+
+
+/*media query*/
+
+@media(max-width:450px) {
+    #contTabla {
+        width: 300px;
+        color: blanchedalmond;
+    }
+    .card-body>h1 {
+        font-size: 2rem;
     }
 }

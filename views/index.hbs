@@ -65,10 +65,8 @@
         <tr class="table-dark">
             <th scope="row">{{price}}</th>
             <td>{{nombre}}</td>
-            <td><div id="imagenprueba">
-            
-            </div></td>
-            <td><a class="btn btn-info" href="/delete/{{id}}">eliminar</a></td>
+            <td><img id="imagenprueba" src="{{data.foto}}" alt=""></td>
+            <td><a class="btn btn-danger" href="/delete/{{id}}">eliminar</a></td>
             <td><a class="btn btn-dark" href="/edit/{{id}}">modificar</a></td>
         </tr>
         {{/each}}
@@ -77,14 +75,13 @@
 
 
 </div>
+<!--aca tambien habia puesto la ruta absoluta de public , pero me tira un 404 como que no la encuentra-->
 
-
-<img id="img2" src="{{data.foto}}" alt="">
 
 <div class="card-body">
-    <h1 class="display-3">Bienvenido a Unload!</h1>
+    <h1 class="display-3"> Unload!</h1>
     <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-        featured content or information.</p>
+        featured content </p>
     <hr class="my-4">
     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
     <p class="lead">
