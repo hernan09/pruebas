@@ -47,7 +47,8 @@ app.post('/new', (req, res) => {
     let producto1 = new producto()
     producto1.nombre = req.body.nombre
     producto1.price = req.body.price
-    producto1.foto = '/uploads' + req.file.originalname
+        //en esta parte probe con path y con cada entrada que me da el file del multer pero no se guarda
+    producto1.foto = '/uploads/' + req.file.filename
 
     console.log(req.file)
 
