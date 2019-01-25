@@ -48,7 +48,7 @@ app.post('/new', (req, res) => {
     producto1.nombre = req.body.nombre
     producto1.price = req.body.price
         //en esta parte probe con path y con cada entrada que me da el file del multer pero no se guarda
-    producto1.foto = '/uploads/' + req.file.filename
+    producto1.foto = '/uploads/' + req.file.originalname
 
     console.log(req.file)
 
@@ -101,7 +101,11 @@ app.get('/edit/:id', (req, res) => {
 
 app.post('/update/:id', (req, res) => {
     let id = req.params.id
-    let cuerpo = req.body
+    let cuerpo = {
+        name: req.body.nombre,
+        price: req.body.price,
+        foto: '/uploads/' + req.file.originalname
+    }
 
     producto.findByIdAndUpdate(id, cuerpo, (err, productoup) => {
         if (err) res.status(500).send(`${err}`)
